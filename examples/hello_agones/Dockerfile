@@ -17,7 +17,6 @@ RUN --mount=id=hex-cache,type=cache,sharing=locked,target=/root/.hex \
 
 COPY lib /agonesx/src/lib
 COPY examples/hello_agones/lib ./lib
-COPY examples/hello_agones/config ./config
 COPY examples/hello_agones/rel ./rel
 
 FROM builder AS releaser
