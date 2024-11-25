@@ -1,6 +1,6 @@
 # Agonesx
 
-This is the Elixir version of the Agones Game Server Client SDK.
+This is the Elixir version of the Agones Game Server Client SDK.<br>
 Fork of [shikanime/Agonex](https://github.com/shikanime/Agonex).
 
 ## Installation
