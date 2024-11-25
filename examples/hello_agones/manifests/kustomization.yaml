@@ -3,10 +3,10 @@ kind: Kustomization
 namespace: hello-agones
 commonLabels:
   app.kubernetes.io/name: hello-agones
-  app.kubernetes.io/instance: agonex-hello-agones
+  app.kubernetes.io/instance: agonesx-hello-agones
   app.kubernetes.io/version: "0.1.0"
   app.kubernetes.io/component: example
-  app.kubernetes.io/part-of: agonex
+  app.kubernetes.io/part-of: agonesx
 resources:
   - namespace.yaml
   - gameserver.yaml

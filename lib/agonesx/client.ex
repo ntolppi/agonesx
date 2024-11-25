@@ -1,4 +1,4 @@
-defmodule Agonex.Client do
+defmodule Agonesx.Client do
   @moduledoc false
 
   @default_health_interval 5000
@@ -143,8 +143,8 @@ defmodule Agonex.Client do
 
   def handle_call({:watch_game_server, consumer}, _, state) do
     child_spec = %{
-      id: Agonex.Watcher,
-      start: {Agonex.Watcher, :start_link, [consumer, state.channel]}
+      id: Agonesx.Watcher,
+      start: {Agonesx.Watcher, :start_link, [consumer, state.channel]}
     }
 
     DynamicSupervisor.start_child(state.watcher_sup, child_spec)
@@ -179,7 +179,7 @@ defmodule Agonex.Client do
     do: Duration.new(seconds: seconds)
 end
 
-defmodule Agonex.Watcher do
+defmodule Agonesx.Watcher do
   @moduledoc false
   use GenServer
   alias Agones.Dev.Sdk.{Empty, SDK.Stub}

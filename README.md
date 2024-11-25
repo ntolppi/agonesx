@@ -1,13 +1,14 @@
-# Agonex
+# Agonesx
 
 This is the Elixir version of the Agones Game Server Client SDK.
+Fork of [shikanime/Agonex](https://github.com/shikanime/Agonex).
 
 ## Installation
 
 ```elixir
 def deps do
   [
-    {:agonex, github: "shikanime/agonex"}
+    {:agonesx, github: "ntolppi/agonesx"}
   ]
 end
 ```

@@ -1,11 +1,11 @@
-defmodule Agonex.MixProject do
+defmodule Agonesx.MixProject do
   use Mix.Project
 
   @version "0.2.1-beta.1"
 
   def project do
     [
-      app: :agonex,
+      app: :agonesx,
       version: @version,
       elixir: "~> 1.10",
       start_permanent: Mix.env() == :prod,
@@ -19,7 +19,7 @@ defmodule Agonex.MixProject do
   def application do
     [
       extra_applications: [:logger],
-      mod: {Agonex.Application, []}
+      mod: {Agonesx.Application, []}
     ]
   end
 
@@ -33,18 +33,18 @@ defmodule Agonex.MixProject do
 
   defp package do
     [
-      maintainers: ["Shikanime Deva"],
+      maintainers: ["Nicholas Tolppi"],
       licenses: ["MIT"],
-      links: %{github: "https://github.com/Shikanime/Agonex"},
+      links: %{github: "https://github.com/ntolppi/agonesx"},
       files: ~w(lib LICENSE.md mix.exs README.md)
     ]
   end
 
   defp docs do
     [
-      main: "Agonex",
+      main: "Agonesx",
       source_ref: "v#{@version}",
-      source_url: "https://github.com/Shikanime/Agonex"
+      source_url: "https://github.com/ntolppi/agonesx"
     ]
   end
 end

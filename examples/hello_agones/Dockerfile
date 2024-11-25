@@ -2,20 +2,20 @@
 
 FROM hexpm/elixir:1.10.3-erlang-23.0.1-alpine-3.11.6 AS builder
 
-WORKDIR /agonex/src/examples/hello_agones/
+WORKDIR /agonesx/src/examples/hello_agones/
 
 RUN --mount=type=cache,id=apk,sharing=locked,target=/var/cache/apk \
   apk add --update git
 RUN mix do local.hex --force, local.rebar --force
 
-COPY mix.* /agonex/src/
+COPY mix.* /agonesx/src/
 COPY examples/hello_agones/mix.* ./
 
 RUN --mount=id=hex-cache,type=cache,sharing=locked,target=/root/.hex \
   --mount=id=deps-cache,type=cache,sharing=locked,target=./deps \
   mix do deps.get
 
-COPY lib /agonex/src/lib
+COPY lib /agonesx/src/lib
 COPY examples/hello_agones/lib ./lib
 COPY examples/hello_agones/config ./config
 COPY examples/hello_agones/rel ./rel
@@ -33,7 +33,7 @@ RUN --mount=type=cache,id=apk,sharing=locked,target=/var/cache/apk \
 
 ENV RELEASE_TMP=/tmp
 
-COPY --from=releaser /agonex/src/examples/hello_agones/_build/dev/rel/hello_agones /hello_agones
+COPY --from=releaser /agonesx/src/examples/hello_agones/_build/dev/rel/hello_agones /hello_agones
 
 ENV PATH=/hello_agones/bin:$PATH
 
