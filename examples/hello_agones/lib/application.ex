@@ -7,9 +7,7 @@ defmodule HelloAgones.Application do
 
   def start(_type, _args) do
     children = [
-      :ranch.child_spec(HelloAgones.Server, :ranch_tcp, [port: 7654], :echo_protocol, [])
-      # Starts a worker by calling: HelloAgones.Worker.start_link(arg)
-      # {HelloAgones.Worker, arg}
+      {HelloAgones.ListenerSup, {}}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

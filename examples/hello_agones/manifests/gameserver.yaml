@@ -11,7 +11,7 @@ spec:
       shareProcessNamespace: true
       containers:
         - name: hello-agones
-          image: shikanime/hello-agones
+          image: norman12556/hello-agones
           imagePullPolicy: Never
           resources:
             requests:
