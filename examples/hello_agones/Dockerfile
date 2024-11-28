@@ -1,6 +1,7 @@
 # syntax = docker/dockerfile:experimental
 
-FROM hexpm/elixir:1.10.3-erlang-23.0.1-alpine-3.11.6 AS builder
+# FROM hexpm/elixir:1.10.3-erlang-23.0.1-alpine-3.11.6 AS builder
+FROM hexpm/elixir:1.17.3-erlang-26.2.5.5-alpine-3.17.9 AS builder
 
 WORKDIR /agonesx/src/examples/hello_agones/
 
@@ -24,11 +25,11 @@ FROM builder AS releaser
 RUN --mount=id=deps-cache,type=cache,sharing=locked,target=./deps \
   mix release --overwrite
 
-FROM alpine:3.11.6 AS runner
+FROM alpine:3.17.9 AS runner
 
 RUN --mount=type=cache,id=apk,sharing=locked,target=/var/cache/apk \
   ln -vs /var/cache/apk /etc/apk/cache && \
-  apk add --update openssl ncurses
+  apk add --no-cache --update openssl ncurses-libs libstdc++
 
 ENV RELEASE_TMP=/tmp
 
