@@ -11,7 +11,7 @@ spec:
       shareProcessNamespace: true
       containers:
         - name: hello-agones
-          image: norman12556/hello-agones
+          image: norman12556/hello-agones:latest
           imagePullPolicy: Never
           resources:
             requests:

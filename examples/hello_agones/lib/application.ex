@@ -5,9 +5,12 @@ defmodule HelloAgones.Application do
 
   use Application
 
+  @impl true
   def start(_type, _args) do
     children = [
-      {HelloAgones.ListenerSup, {}}
+      # Starts a worker by calling: UdpServer.Worker.start_link(arg)
+      # {UdpServer.Worker, arg}
+      {HelloAgones, 7654},
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
