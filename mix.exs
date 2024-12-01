@@ -25,9 +25,9 @@ defmodule Agonesx.MixProject do
 
   defp deps do
     [
-      {:nimble_options, "~> 0.2"},
-      {:grpc, "~> 0.5.0-beta.1"},
-      {:ex_doc, "~> 0.22.1", only: :dev, runtime: false}
+      {:nimble_options, "~> 1.1.1"},
+      {:grpc, "~> 0.9.0"},
+      {:ex_doc, "~> 0.35.1", only: :dev, runtime: false}
     ]
   end
 
