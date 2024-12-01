@@ -57,7 +57,7 @@ defmodule Agonesx.Client do
   end
 
   def handle_continue({:connect, port, opts}, state) do
-    stub_opts = Keyword.merge(opts, adapter_opts: %{http2_opts: %{keepalive: :infinity}})
+    stub_opts = Keyword.merge(opts, adapter_opts: [http2_opts: %{keepalive: :infinity}])
 
     case GRPC.Stub.connect("localhost", port, stub_opts) do
       {:ok, channel} ->
@@ -73,11 +73,18 @@ defmodule Agonesx.Client do
 
         {:noreply, state}
 
+      # TODO: Add print for health timeout
+      {:error, :timeout} ->
+        {:noreply, state}
+
       {:error, "Error when opening connection: protocol " <> proto} ->
         {:stop, {:error, {:protocol_mismatch, proto |> String.to_existing_atom()}}, state}
 
       {:error, "Error when opening connection: :" <> reason} ->
         {:stop, {:error, reason |> String.to_existing_atom()}, state}
+
+      {:error, reason} ->
+        {:stop, {:error, reason |> String.to_exisiting_atom()}, state}
     end
   end
 

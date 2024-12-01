@@ -15,6 +15,7 @@ end
 
 ## Generate Protobuf
 
+Generate Elixir code fro sdk.proto:
 ```bash
-protoc -I=./proto/agones/dev/sdk/sdk.proto -I=./proto/allocation/allocation.proto -I=./proto/googleapis/google/api/annotations.proto -I=./proto/googleapis/google/api/client.proto -I=./proto/googleapis/google/api/field_behavior.proto -I=./proto/googleapis/google/api/http.proto -I=./proto/googleapis/google/api/launch_stage.proto -I=./proto/googleapis/google/api/resource.proto -I=./proto/grpc-gateway/protoc-gen-openapiv2/options/annotations.proto -I=./proto/grpc-gateway/protoc-gen-openapiv2/options/openapiv2.proto --elixir_out=plugins=grpc:./lib/agones/dev/sdk ./proto/agones/dev/sdk/sdk.proto
+protoc -I ./googleapis -I ./allocation -I ./grpc-gateway -I ./agones --elixir_out=plugins=grpc:../lib ./agones/dev/sdk/sdk.proto
 ```
