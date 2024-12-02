@@ -84,7 +84,7 @@ defmodule Agonesx.Client do
         {:stop, {:error, reason |> String.to_existing_atom()}, state}
 
       {:error, reason} ->
-        {:stop, {:error, reason |> String.to_exisiting_atom()}, state}
+        {:stop, {:error, reason |> String.to_existing_atom()}, state}
     end
   end
 
